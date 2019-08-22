@@ -111,4 +111,43 @@ print(matrix * array) # [[ 1.  4.  9.]
 
 원소 접근 방식은 기존 배열과 그렇게 다를 바 없다.
 
+```
+import numpy as np
 
+matrix = np.array([[1.0, 2.0], [3.0, 4.0]])
+
+print(matrix[0][1]) # 2.0
+
+for row in matrix:
+    print(row)
+    # 0
+    # [1. 2.]
+    # 1
+    # [3. 4.]
+```
+
+넘파이는 flatten() 메서드를 이융해 n차원 배열을 1차원 배열로 변환할 수 있다.
+
+```
+import numpy as np
+
+matrix = np.array([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
+
+print(matrix.flatten()) # [1. 2. 3. 4. 5. 6.]
+```
+
+넘파이에서는 인덱스를 배열로 지정해 한 번에 여러 원소에 접근할 수도 있고, 특정 조건을 만족하는 원소만 얻을 수도 있다.
+
+```
+import numpy as np
+
+matrix = np.array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+
+print(matrix[np.array([0, 2, 4])]) # [1. 3. 5.]
+print(matrix < 3) # [True True False False False False]
+print(matrix[matrix < 3]) # [1. 2.]
+```
+
+넘파이 배열에 부등호 연산을 수행하면 배열의 원소 각각에 부등호 연산을 수행한 bool 배열이 생성된다.
+
+이 bool 배열을 사용해 배열 matrix에서 True에 해당하는 원소들을 꺼낸 것이다.
